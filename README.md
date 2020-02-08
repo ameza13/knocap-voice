@@ -18,3 +18,28 @@ $ jovo new <directory>
 $ jovo new <directory> --template helloworld
 ```
 
+# Google Action
+
+- To Display All Meetings
+  - "show me all the meetings",
+  - "show me all meetings",
+  - "meetings"
+
+- To Display Specific Meeting
+  - "what notes do we have for meeting {meetingName}"
+  + "show me notes for meeting {meetingName}"
+
+
+- To Display All Keywords
+  - "show me the keywords"
+  - "show me all keywords"
+  - "keywords"
+
+- To Search For Specific Keyword
+  - "search notes for {keyword}",
+  ? "what did we say about {keyword}?",
+  - "find something about {keyword}",
+  - "do we have something about {keyword}"
+
+
+- "remind me instructions"

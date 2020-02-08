@@ -25,46 +25,79 @@ app.setHandler({
 		return this.toIntent('HelloWorldIntent');
 	},
 
-	async MeetingsIntent() {
+	async ConnectIntent() {
 		try {
-			const response = await axios.get(ENDPOINT + '/sidebar?type=meeting');
-			console.log('success');
+			console.log(ENDPOINT + '/sidebar?type=connect&pinCode=' + this.$inputs.pinCode.value);
+			const response = await axios.get(ENDPOINT + '/sidebar?type=connect&pinCode=' + this.$inputs.pinCode.value);
+			const meetingId = response.data.meetingId;
+			if(meetingId === "") {
+				this.ask("I cannot connect to the meeting with the provided pin code, please try again!");
+			} else {
+				this.$session.$data.pinCode = this.$inputs.pinCode.value;
+				this.ask("Connected to the meeting!");
+			}
+		} catch (error) {
+			console.error('error:ConnectIntent');
+			this.ask('Something went wrong');
+		}
+	},
+
+	async MeetingsIntent() {
+		if(this.$session.$data.pinCode === undefined || this.$session.$data.pinCode === '') {
+			this.ask('Please connect to a meeting first!');
+			return;
+		}
+		try {
+			const response = await axios.get(ENDPOINT + '/sidebar?type=meeting' + `&pinCode=${this.$session.$data.pinCode}`);
+			console.log('success:MeetingsIntent');
 			this.ask('Done');
 		} catch (error) {
-			console.error('error');
+			console.error('error:MeetingsIntent');
 			this.ask('Something went wrong');
 		}
 	},
 
 	async MeetingIntent() {
+		if(this.$session.$data.pinCode === undefined || this.$session.$data.pinCode === '') {
+			this.ask('Please connect to a meeting first!');
+			return;
+		}
 		try {
-			const response = await axios.get(ENDPOINT + '/sidebar?type=meeting&value=' + this.$inputs.meetingName.value);
-			console.log('success');
+			const response = await axios.get(ENDPOINT + '/sidebar?type=meeting&value=' + this.$inputs.meetingName.value + `&pinCode=${this.$session.$data.pinCode}`);
+			console.log('success:MeetingIntent');
 			this.ask('Done');
 		} catch (error) {
-			console.error('error');
+			console.error('error:MeetingIntent');
 			this.ask('Something went wrong');
 		}
 	},
 
 	async KeywordsIntent() {
+		if(this.$session.$data.pinCode === undefined || this.$session.$data.pinCode === '') {
+			this.ask('Please connect to a meeting first!');
+			return;
+		}
 		try {
-			const response = await axios.get(ENDPOINT + '/sidebar?type=keyword');
-			console.log('success');
+			const response = await axios.get(ENDPOINT + '/sidebar?type=keyword' + `&pinCode=${this.$session.$data.pinCode}`);
+			console.log('success:KeywordsIntent');
 			this.ask('Done');
 		} catch (error) {
-			console.error('error');
+			console.error('error:KeywordsIntent');
 			this.ask('Something went wrong');
 		}
 	},
 
 	async KeywordIntent() {
+		if(this.$session.$data.pinCode === undefined || this.$session.$data.pinCode === '') {
+			this.ask('Please connect to a meeting first!');
+			return;
+		}
 		try {
-			const response = await axios.get(ENDPOINT + `/sidebar?type=keyword&value=${this.$inputs.keyword.value}`);
-			console.log('success');
+			const response = await axios.get(ENDPOINT + `/sidebar?type=keyword&value=${this.$inputs.keyword.value}` + `&pinCode=${this.$session.$data.pinCode}`);
+			console.log('success:KeywordIntent');
 			this.ask('Done');
 		} catch (error) {
-			console.error('error');
+			console.error('error:KeywordIntent');
 			this.ask('Something went wrong');
 		}
 	},
@@ -93,18 +126,17 @@ app.setHandler({
 	},
 
 	RemindIntent() {
-		// this.$speech.addText("With KNOCAP-reminder you can search notes for a certain keyword, or you can search notes for a specific meeting.")
 		this.$speech.addText(
-			'With KNOCAP-reminder you can search notes for a certain keyword, or you can search notes for all meetings.'
+			'With knocap-reminder you can search notes for a certain keyword, or you can search notes for all meetings.'
 		);
 
 		this.$speech.addText(
-			"To search notes using a keyword say 'Alexa, search notes for TCP' or you can also say, what did we say about TCP?."
+			"To search notes using a keyword say 'search notes for TCP' or you can also say, what did we say about TCP?."
 		);
 
-		// this.$speech.addText("To search notes for a meeting, you can say 'Alexa, show me the notes for Pilot 7'.");
-		this.$speech.addText("To find out all keywords recorded, say 'Alexa, show me all keywords'.");
-		this.$speech.addText("To find out all meetings, say 'Alexa, show me all meetings'.");
+		this.$speech.addText("To search notes for a meeting, you can say 'show me the notes for meeting whiteboard'.");
+		this.$speech.addText("To find out all keywords recorded, say 'show me all keywords'.");
+		this.$speech.addText("To find out all meetings, say 'show me all meetings'.");
 
 		// NotImplementedYet
 		// this.$speech.addText("You could also say 'Alexa, pull the notes from last meeting' to bring the notes from your last meeting.");

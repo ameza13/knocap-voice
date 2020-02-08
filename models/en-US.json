@@ -14,6 +14,21 @@
 			"phrases": [ "No", "Cancel" ]
 		},
 		{
+			"name": "ConnectIntent",
+			"phrases": [
+				"connect to {pinCode}"
+			],
+			"inputs": [
+				{
+					"name": "pinCode",
+					"type": {
+						"dialogflow": "@sys.number",
+						"alexa": "AMAZON.number"
+					}
+				}
+			]
+		},
+		{
 			"name": "MeetingsIntent",
 			"phrases": [
 				"show me all the meetings",
@@ -24,7 +39,8 @@
 		{
 			"name": "MeetingIntent",
 			"phrases": [
-				"what notes do we have for {meetingName}"
+				"what notes do we have for meeting {meetingName}",
+				"show me notes for meeting {meetingName}"
 			],
 			"inputs": [
 				{
@@ -40,16 +56,17 @@
 			"name": "KeywordsIntent",
 			"phrases": [
 				"show me the keywords",
-				"show me all keywords"
+				"show me all keywords",
+				"keywords"
 			]
 		},
 		{
 			"name": "KeywordIntent",
 			"phrases": [
-				"search notes for keyword {keyword}",
-				"what did we say about keyword {keyword}?",
-				"find something about keyword {keyword}",
-				"do we have something about keyword {keyword}"
+				"search notes for {keyword}",
+				"what did we say about {keyword}?",
+				"find something about {keyword}",
+				"do we have something about {keyword}"
 			],
 			"inputs": [
 				{
