@@ -114,7 +114,7 @@ app.setHandler({
 	HelloWordState: {
 		YesIntent() {
 			this.$speech.addText("Great! I'll be around, let me know when you need my help.");
-			this.$speech.addText("Also, if you forget how this skill works say 'Alexa, remind me instructions'.");
+			this.$speech.addText("Also, if you forget how this skill works say 'remind me instructions'.");
 			this.followUpState(null).ask(this.$speech);
 		},
 		NoIntent() {
