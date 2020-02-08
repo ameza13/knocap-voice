@@ -1,0 +1,5 @@
+{
+	"name": "MeetingsIntent",
+	"auto": true,
+	"webhookUsed": true
+}

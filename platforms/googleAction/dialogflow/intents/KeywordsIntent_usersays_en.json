@@ -1,0 +1,22 @@
+[
+	{
+		"data": [
+			{
+				"text": "show me the keywords",
+				"userDefined": false
+			}
+		],
+		"isTemplate": false,
+		"count": 0
+	},
+	{
+		"data": [
+			{
+				"text": "show me all keywords",
+				"userDefined": false
+			}
+		],
+		"isTemplate": false,
+		"count": 0
+	}
+]

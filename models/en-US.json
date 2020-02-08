@@ -1,0 +1,111 @@
+{
+	"invocation": "my test app",
+	"intents": [
+		{
+			"name": "HelloWorldIntent",
+			"phrases": [ "restart" ]
+		},
+		{
+			"name": "YesIntent",
+			"phrases": [ "Yes", "Sure" ]
+		},
+		{
+			"name": "NoIntent",
+			"phrases": [ "No", "Cancel" ]
+		},
+		{
+			"name": "MeetingsIntent",
+			"phrases": [
+				"show me all the meetings",
+				"show me all meetings",
+				"meetings"
+			]
+		},
+		{
+			"name": "MeetingIntent",
+			"phrases": [
+				"what notes do we have for {meetingName}"
+			],
+			"inputs": [
+				{
+					"name": "meetingName",
+					"type": {
+						"dialogflow": "@sys.any",
+						"alexa": "AMAZON.any"
+					}
+				}
+			]
+		},
+		{
+			"name": "KeywordsIntent",
+			"phrases": [
+				"show me the keywords",
+				"show me all keywords"
+			]
+		},
+		{
+			"name": "KeywordIntent",
+			"phrases": [
+				"search notes for keyword {keyword}",
+				"what did we say about keyword {keyword}?",
+				"find something about keyword {keyword}",
+				"do we have something about keyword {keyword}"
+			],
+			"inputs": [
+				{
+					"name": "keyword",
+					"type": {
+						"dialogflow": "@sys.any",
+						"alexa": "AMAZON.any"
+					}
+				}
+			]
+		},
+		{
+			"name": "RemindIntent",
+			"phrases": [
+				"remind me instructions"
+			]
+		}
+	],
+	"alexa": {
+		"interactionModel": {
+			"languageModel": {
+				"intents": [
+					{
+						"name": "AMAZON.CancelIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.HelpIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.StopIntent",
+						"samples": []
+					}
+				]
+			}
+		}
+	},
+	"dialogflow": {
+		"intents": [
+			{
+				"name": "Default Fallback Intent",
+				"auto": true,
+				"webhookUsed": true,
+				"fallbackIntent": true
+			},
+			{
+				"name": "Default Welcome Intent",
+				"auto": true,
+				"webhookUsed": true,
+				"events": [
+					{
+						"name": "WELCOME"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,70 @@
+[
+	{
+		"data": [
+			{
+				"text": "search notes for keyword ",
+				"userDefined": false
+			},
+			{
+				"text": "keyword",
+				"userDefined": true,
+				"alias": "keyword",
+				"meta": "@sys.any"
+			}
+		],
+		"isTemplate": false,
+		"count": 0
+	},
+	{
+		"data": [
+			{
+				"text": "what did we say about keyword ",
+				"userDefined": false
+			},
+			{
+				"text": "keyword",
+				"userDefined": true,
+				"alias": "keyword",
+				"meta": "@sys.any"
+			},
+			{
+				"text": "?",
+				"userDefined": false
+			}
+		],
+		"isTemplate": false,
+		"count": 0
+	},
+	{
+		"data": [
+			{
+				"text": "find something about keyword ",
+				"userDefined": false
+			},
+			{
+				"text": "keyword",
+				"userDefined": true,
+				"alias": "keyword",
+				"meta": "@sys.any"
+			}
+		],
+		"isTemplate": false,
+		"count": 0
+	},
+	{
+		"data": [
+			{
+				"text": "do we have something about keyword ",
+				"userDefined": false
+			},
+			{
+				"text": "keyword",
+				"userDefined": true,
+				"alias": "keyword",
+				"meta": "@sys.any"
+			}
+		],
+		"isTemplate": false,
+		"count": 0
+	}
+]

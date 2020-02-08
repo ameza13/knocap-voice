@@ -1,0 +1,17 @@
+{
+	"name": "MeetingIntent",
+	"auto": true,
+	"webhookUsed": true,
+	"responses": [
+		{
+			"parameters": [
+				{
+					"isList": false,
+					"name": "meetingName",
+					"value": "$meetingName",
+					"dataType": "@sys.any"
+				}
+			]
+		}
+	]
+}

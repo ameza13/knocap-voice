@@ -1,0 +1,17 @@
+{
+	"name": "KeywordIntent",
+	"auto": true,
+	"webhookUsed": true,
+	"responses": [
+		{
+			"parameters": [
+				{
+					"isList": false,
+					"name": "keyword",
+					"value": "$keyword",
+					"dataType": "@sys.any"
+				}
+			]
+		}
+	]
+}
