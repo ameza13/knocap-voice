@@ -29,6 +29,14 @@
 			]
 		},
 		{
+			"name": "HideIntent",
+			"phrases": [
+				"hide",
+				"hide sidebar",
+				"hide bar"
+			]
+		},
+		{
 			"name": "MeetingsIntent",
 			"phrases": [
 				"show me all the meetings",

@@ -102,6 +102,21 @@ app.setHandler({
 		}
 	},
 
+	async HideIntent() {
+		if(this.$session.$data.pinCode === undefined || this.$session.$data.pinCode === '') {
+			this.ask('Please connect to a meeting first!');
+			return;
+		}
+		try {
+			const response = await axios.get(ENDPOINT + '/sidebar?type=hide' + `&pinCode=${this.$session.$data.pinCode}`);
+			console.log('success:HideIntent');
+			this.ask('Done');
+		} catch (error) {
+			console.error('error:HideIntent');
+			this.ask('Something went wrong');
+		}
+	},
+
 	HelloWorldIntent() {
 		this.$speech.addText('Welcome to Knocap Reminder.');
 		this.$speech.addText(
