@@ -11,7 +11,7 @@ const { JovoDebugger } = require('jovo-plugin-debugger');
 const { FileDb } = require('jovo-db-filedb');
 const axios = require('axios');
 
-const ENDPOINT = 'http://localhost/v1';
+const ENDPOINT = 'http://knocap.ics.uci.edu/v1';
 const app = new App();
 
 app.use(new Alexa(), new GoogleAssistant(), new JovoDebugger(), new FileDb());
